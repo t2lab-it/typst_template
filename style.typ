@@ -11,6 +11,7 @@
 }
 
 // ソースコードを表示するための関数 -----
+//https://zenn.dev/higumachan/scraps/1619ad8dc0e776
 
 #let pad_int(i, N: 2) = {
   // pad an integer with leading zeros
@@ -72,11 +73,12 @@
   show math.equation: set text(weight: 400)
   show math.equation: set block(spacing: 0.65em)
   set math.equation(numbering: "(1)")
+  //セクションの設定
   set heading(numbering: "1.1")
   show heading : set text(font: gothic)
+  //文章全体のフォント設定
   set text(font: mincho, size: 10pt)
   //参考文献の設定
-  set bibliography(title: text(font:gothic))
   show raw: it =>{
       grid(
     columns: 2,
@@ -152,6 +154,7 @@
       ]),
     ),
   )
+  // 日付の表示
   if date == "on"{
     align(center)[#nowdate]
   }
@@ -176,6 +179,7 @@
       ],
     )
 
+    // 目次の表示
     if tableofcontents == "on"{
       v(0.5cm)
       line(length: 100%, stroke: 0.5pt)
