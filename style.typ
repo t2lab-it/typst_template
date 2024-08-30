@@ -85,6 +85,21 @@
     code_content_block(it),
   )
   }
+  //節番号ごとに数式・図の番号をつける
+  //https://github.com/typst/typst/issues/1896#issuecomment-2122449629
+  show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+    it
+  }
+  set math.equation(numbering: num =>
+    "(" + (str(counter(heading).get().at(0)) + "." + str(num)) + ")"
+  )
+  set figure(numbering: num =>
+    str(counter(heading).get().at(0)) + "." + str(num)
+  )
   //目次の設定
   //set outline(title : "目次")
 
