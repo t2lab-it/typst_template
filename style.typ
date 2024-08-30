@@ -68,14 +68,15 @@
     numbering: "1",
     number-align: center,
   )
-  set text(font: "New Computer Modern", lang: "en")
+  //数式の設定
   show math.equation: set text(weight: 400)
   show math.equation: set block(spacing: 0.65em)
   set math.equation(numbering: "(1)")
   set heading(numbering: "1.1")
   show heading : set text(font: gothic)
   set text(font: mincho, size: 10pt)
-  set bibliography(title: text(font:gothic,"参考文献"))
+  //参考文献の設定
+  set bibliography(title: text(font:gothic))
   show raw: it =>{
       grid(
     columns: 2,
@@ -84,8 +85,8 @@
     code_content_block(it),
   )
   }
-
-  set outline(title : "目次")
+  //目次の設定
+  //set outline(title : "目次")
 
   // Set run-in subheadings, starting at level 4.
   show heading: it => {

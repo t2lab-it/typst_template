@@ -1,8 +1,8 @@
 #import "style.typ": *
+#set text(lang: "ja")
 //==================================================
 //                    DOCUMENT
 //==================================================
-
 #show: maketitle.with(
   title: [タイトル],
   authors: (
