@@ -102,6 +102,7 @@
   set figure(numbering: num =>
     str(counter(heading).get().at(0)) + "." + str(num)
   )
+  set figure.caption(separator: [ ])
   //目次の設定
   //set outline(title : "目次")
 
