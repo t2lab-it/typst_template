@@ -19,8 +19,9 @@
   ),
   date:"on",
   tableofcontents:"on",
-  abstract: "ここに概要を記述します．概要を記述しない場合は，\" \"の中に何も記述しなければ良いです．このときは，Abstractの文字も自動的に消えます．日付の表示を消したい場合には，date:\"off\"などと記述すれば，消えます．同様にして，目次のon, offも行えます．"
+  abstract: "ここに概要を記述します．概要を記述しない場合は，\" \"の中に何も記述しなければ良いです．このときは，Abstractの文字も自動的に消えます．日付の表示を消したい場合には，date:\"off\"などと記述すれば，消えます．同様にして，目次のon, offも，tableofcontentsによって行うことができます．"
 )
+
 
 
 
@@ -53,8 +54,49 @@ $y = sin(x)$
 
 == サブセクション
 
+深い階層に行ったとき，番号付けは自動的に行われます．
+また，画像は@water のように参照することができ，画像の記述は，
+```typst
+#figure(
+  image("figure/water.jpg", width: 50%),
+  caption: [figure title],
+) <water>
+```
+のようにすれば，
+#figure(
+  image("figure/water.jpg", width: 50%),
+  caption: [figure title],
+) <water>
+と表示できます．
+同様にして，tableについても
+```typst
+#figure(
+  table(
+    columns: 4,
+    [t], [1], [2], [3],
+    [y], [0.3s], [0.4s], [0.8s],
+  ),
+  caption: [Timing results],
+)
+```
+のように記述すれば，
+#figure(
+  table(
+    columns: 4,
+    [t], [1], [2], [3],
+    [y], [0.3s], [0.4s], [0.8s],
+  ),
+  caption: [Timing results],
+)
+となります．\
 
+また，参考文献は，bibtexを使用できます．
+この場合，キー「tsukahara2023」に対し，
+```typst
 #cite(<tsukahara2023>)
+```
+
+と記述すれば，参考文献#cite(<tsukahara2023>)を参照できます．
 
 
 
