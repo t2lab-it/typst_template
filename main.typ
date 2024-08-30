@@ -1,7 +1,18 @@
-#import "@preview/arkheion:0.1.0": *
 #import "style.typ": *
-
-#set math.equation(numbering: "(1)")
+#set text(lang: "ja")
 //==================================================
 //                    DOCUMENT
 //==================================================
+#show: maketitle.with(
+  title: [],
+  authors: (
+    (
+      name: "",
+      email: "",
+      affiliation: "",
+    ),
+  ),
+  date:"on",
+  tableofcontents:"on",
+  abstract: ""
+)
