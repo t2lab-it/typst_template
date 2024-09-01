@@ -116,6 +116,12 @@
   set figure.caption(separator: [ ])
   //目次の設定
   //set outline(title : "目次")
+  show outline.entry.where(
+    level: 1
+  ): it => {
+    v(12pt, weak: true)
+    strong(it)
+  }
 
   // Set run-in subheadings, starting at level 4.
   show heading: it => {
@@ -196,7 +202,10 @@
     if tableofcontents == "on"{
       v(0.5cm)
       line(length: 100%, stroke: 0.5pt)
-      par(leading: 15pt,outline())
+      par(leading: 15pt,outline(
+        indent: auto,
+        fill: box(width: 1fr, repeat(h(2pt) + "." + h(2pt))) + h(8pt))
+        )
       pagebreak()
     }
  }
