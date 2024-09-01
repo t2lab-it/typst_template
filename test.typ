@@ -1,4 +1,5 @@
 #import "style.typ": *
+#import "add_style.typ": *
 #set text(lang: "ja")
 //==================================================
 //                    DOCUMENT
@@ -97,6 +98,18 @@ $y = sin(x)$
 ```
 
 と記述すれば，参考文献#cite(<tsukahara2023>)を参照できます．
+
+== add_style環境
+
+add_style環境では，上記の基本的な機能に加えて，様々な拡張機能を提供します．
+
+#teiri("定理名", "内容")
+#teigi("定義名", "内容")
+#shoumei[
+  証明内容
+]
+この場合，`algorithm`は
+
 
 
 

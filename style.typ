@@ -143,7 +143,7 @@
   // Title row.
   pad(
     bottom: 4pt,
-    top: 4pt,
+    top: 2cm,
     align(center)[
       #set text(font: mincho)
       #block(text(weight: 500, 1.75em, title))
@@ -154,8 +154,9 @@
 
   // Author information.
   pad(
-    top: 0.5em,
+    top: 2em,
     x: 2em,
+    bottom: 1.5em,
     grid(
       columns: (1fr,) * calc.min(3, authors.len()),
       gutter: 1em,
