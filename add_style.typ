@@ -66,3 +66,11 @@
   )
   line(stroke: (dash: ("dot", 3pt), paint: luma(140), thickness: 1.5pt), end: (100%, 0%), start: (0%, 0%))}
 }
+
+//枠組環境
+#let graybox(it) = block(
+  fill: luma(230),
+  width: 100%,
+  inset: 10pt,
+  it
+)
