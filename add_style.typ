@@ -74,3 +74,9 @@
   inset: 10pt,
   it
 )
+#let framebox(it) = block(
+  stroke: black,
+  width: 100%,
+  inset: 10pt,
+  it
+)
