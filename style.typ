@@ -10,6 +10,9 @@
   [#datetime.today().year()年#datetime.today().month()月#datetime.today().day()日]
 }
 
+//add_style.typのためのカウンター
+#let teirinum = counter("teirinum")
+#let teiginum = counter("teiginum")
 // ソースコードを表示するための関数 -----
 //https://zenn.dev/higumachan/scraps/1619ad8dc0e776
 
@@ -79,7 +82,7 @@
   //文章全体のフォント設定
   set text(font: mincho, size: 10pt)
   //参考文献の設定
-  show raw: it =>{
+  show raw.where(block: true): it =>{
       grid(
     columns: 2,
     gutter: 0pt,
@@ -87,10 +90,18 @@
     code_content_block(it),
   )
   }
+  show raw.where(block: false): box.with(
+    fill: luma(240),
+    inset: (x: 3pt, y: 0pt),
+    outset: (y: 3pt),
+    radius: 2pt,
+  )
   //節番号ごとに数式・図の番号をつける
   //https://github.com/typst/typst/issues/1896#issuecomment-2122449629
   show heading.where(level: 1): it => {
     counter(math.equation).update(0)
+    teirinum.update(0)
+    teiginum.update(0)
     counter(figure.where(kind: image)).update(0)
     counter(figure.where(kind: table)).update(0)
     counter(figure.where(kind: raw)).update(0)
