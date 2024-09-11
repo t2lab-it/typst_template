@@ -4,12 +4,52 @@ typstの日本語テンプレート
 
 ## テンプレートの使い方
 
-このテンプレートを使用するには，以下のようにしてください．
+以下に `araki` というGitHubユーザーが `araki2024_note` という名前でこのリポジトリを複製する手順を示します．
 
-1. 文書をまとめるため，新たにフォルダを作成する
-   > この`typst_template`内にはフォルダを作成しないでください
-2. 作成したフォルダに，`style.typ`，`main.typ`，`refs.bib`の3つのファイルをコピーしてください．
-3. その後は，`main.typ`に内容を記述していきます．
+※本GitHub Organizationで共有する際は `t2lab-it` で作業してください．
+
+1. GitHubで `araki2024_note` という新しいリポジトリを作成する．
+   このとき， `README` や `.gitignore` などを追加せず空のリポジトリを作成する．
+2. 本テンプレートをその名前でcloneする
+
+   ```bash
+   gh repo clone t2lab-it/typst_template araki2024_note
+   ```
+
+3. 先ほど作成したリモートリポジトリを登録し， `push` する．
+
+   ※空でないリポジトリを作成しているとここでエラーが出る．
+
+   ```bash
+   git remote set-url origin git@github.com:araki/araki2024_note
+   git push origin HEAD
+   ```
+
+### テンプレートへの更新を取り入れるとき
+
+1. このテンプレートのリポジトリを登録する
+
+   ```bash
+   git remote add upstream git@github.com:t2lab-it/typst_template
+   ```
+
+2. テンプレートの最新状態を取得する
+
+   ```bash
+   git fetch upstream
+   ```
+
+3. 自分が `master` / `main` ブランチにいることを確認し，テンプレートの最新状態を `merge` する
+
+   ```bash
+   git switch master && git merge upstream/master
+   ```
+
+4. 自身のリモートリポジトリを更新する
+
+   ```bash
+   git push origin HEAD
+   ```
 
 ## 拡張機能について
 
