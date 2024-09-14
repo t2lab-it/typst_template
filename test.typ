@@ -209,6 +209,13 @@ $ H(X, Y) >= 0 $
 この後，通常の数式を書くと，上のカスタムされた数式も数式番号のカウントに含まれていることがわかります．
 $ H(X, Y) >= 0 $
 
+ラベルをつける際には，次のように書きます．
+```typst
+#eqcustom($H(X, Y)>= 0$, "(5.f2)", labelstr: "entropy_non")
+```
+表示は，変化しません．
+#eqcustom($H(X, Y)>= 0$, "(5.f2)", labelstr: "entropy_non")
+これを参照するには，通常通り`@entropy_non`とかくと，@entropy_non のように参照できます．
 
 
 #bibliography("refs.bib")
