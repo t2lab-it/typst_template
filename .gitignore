@@ -1,1 +1,5 @@
 .DS_Store
+
+# Unnecessary PDF files corresponds to Typst style files
+add_style.pdf
+style.pdf
