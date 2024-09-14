@@ -80,3 +80,11 @@
   inset: 10pt,
   it
 )
+
+//数式番号の臨時的なカスタム
+#let eqcustom(eq, number, step : false) = [
+  #math.equation(block: true, numbering: num => number, eq)
+  #if step == false {
+    counter(math.equation).update(n => n - 1)
+  }
+]
