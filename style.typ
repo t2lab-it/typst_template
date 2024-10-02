@@ -62,6 +62,7 @@
     numbering: "1",
     number-align: center,
   )
+  set par(leading: 10pt)
   //数式の設定
   show math.equation: set text(weight: 400)
   show math.equation: set block(spacing: 0.65em)
