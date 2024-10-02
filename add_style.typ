@@ -80,3 +80,18 @@
   inset: 10pt,
   it
 )
+
+//数式番号の臨時的なカスタム
+#let eqcustom(eq, number, step : false, labelstr : "") = [
+  #math.equation(block: true, numbering: num => number, eq)
+
+  // ラベルの追加
+  #if label != "" {
+    label(labelstr)
+  }
+
+  // 数式番号をカウントしない
+  #if step == false {
+    counter(math.equation).update(n => n - 1)
+  }
+]
