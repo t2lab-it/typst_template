@@ -1,12 +1,12 @@
 #import "style.typ": *
 #import "add_style.typ": *
-#set text(lang: "ja")
 //拡張環境
 #import"@preview/equate:0.1.0": equate//複数行の数式を個別に番号付け
 #show: equate
 //==================================================
 //                    DOCUMENT
 //==================================================
+#show: set_init
 #show: maketitle.with(
   title: [タイトル],
   authors: (

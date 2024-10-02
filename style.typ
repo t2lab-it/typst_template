@@ -53,25 +53,16 @@
   )
 )
 
-// ソースコードを表示するための関数 -----
+// 最初に呼び出す関数 -----
 
-
-#let maketitle(
-  title: "",
-  abstract: [],
-  keywords: (),
-  authors: (),
-  date: "on" ,
-  tableofcontents: "on",
-  body,
-) = {
-  // Set the document's basic properties.
-  set document(author: authors.map(a => a.name), title: title)
+#let set_init(body) = {
+  set text(lang: "ja")
   set page(
     margin: (left: 25mm, right: 25mm, top: 25mm, bottom: 30mm),
     numbering: "1",
     number-align: center,
   )
+  set par(leading: 10pt)
   //数式の設定
   show math.equation: set text(weight: 400)
   show math.equation: set block(spacing: 0.65em)
@@ -144,7 +135,20 @@
       it
     }
   }
+  body
+}
 
+#let maketitle(
+  title: "",
+  abstract: [],
+  keywords: (),
+  authors: (),
+  date: "on" ,
+  tableofcontents: "on",
+  body,
+) = {
+  // Set the document's basic properties.
+  set document(author: authors.map(a => a.name), title: title)
   //line(length: 100%, stroke: 2pt)
   // Title row.
   pad(
@@ -197,18 +201,20 @@
           #abstract
       ],
     )
+  }
 
-    // 目次の表示
+ // 目次の表示
     if tableofcontents == "on"{
       v(0.5cm)
-      line(length: 100%, stroke: 0.5pt)
+      if abstract != "" {
+        line(length: 100%, stroke: 0.5pt)
+      }
       par(leading: 15pt,outline(
         indent: auto,
         fill: box(width: 1fr, repeat(h(2pt) + "." + h(2pt))) + h(8pt))
         )
       pagebreak()
     }
- }
 
 
 
