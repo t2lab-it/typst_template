@@ -6,24 +6,20 @@
 //==================================================
 //                    DOCUMENT
 //==================================================
-#show: set_init
+#show: jcls_init
 #show: maketitle.with(
   title: [タイトル],
   authors: (
     (
       name: "author 1",
-      email: "",
-      affiliation: "",
     ),
     (
       name: "author 2",
-      email: "",
-      affiliation: "",
     ),
   ),
-  date:"on",
-  tableofcontents:"on",
-  abstract: "ここに概要を記述します．概要を記述しない場合は，\" \"の中に何も記述しなければ良いです．このときは，Abstractの文字も自動的に消えます．日付の表示を消したい場合には，date:\"off\"などと記述すれば，消えます．同様にして，目次のon, offも，tableofcontentsによって行うことができます．"
+  date: true,
+  tableofcontents: true,
+  abstract: [ここに概要を記述します．概要を記述しない場合は，`[ ]`の中に何も記述しなければ良いです．このときは，Abstractの文字も自動的に消えます．日付の表示を消したい場合には，`date: false`などと記述すれば，消えます．同様にして，目次もtableofcontentsによって行うことができます．]
 )
 
 
@@ -97,10 +93,21 @@ $y = sin(x)$
 また，参考文献は，bibtexを使用できます．
 この場合，キー「tsukahara2023」に対し，
 ```typst
-#cite(<tsukahara2023>)
+@tsukahara2023
 ```
 
-と記述すれば，参考文献#cite(<tsukahara2023>)を参照できます．
+と記述すれば，@tsukahara2023 のように参照できます．
+この他にも，
+```typst
+#citet(<tsukahara2023>)
+#citep(<tsukahara2023>)
+#citefull(<tsukahara2023>)
+```
+などとすれば，
+- #citet(<tsukahara2023>)
+- #citep(<tsukahara2023>)
+- #citefull(<tsukahara2023>)
+のように引用できます．
 
 = add_style環境
 
@@ -218,4 +225,14 @@ $ H(X, Y) >= 0 $
 これを参照するには，通常通り`@entropy_non`とかくと，@entropy_non のように参照できます．
 
 
-#bibliography("refs.bib")
+#v(2em)
+#bibliography-list(
+  title: [参考文献],
+  ..bib-file(read("refs.bib")),
+)
+
+#show: jcls_appendix
+
+= 付録
+
+付録は`jcls_appendix`を使用します．

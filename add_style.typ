@@ -1,6 +1,5 @@
 #import "style.typ": *
 
-
 // 定理環境
 #let teiri(title, it) = {
   teirinum.step()
@@ -15,7 +14,7 @@
       fill: luma(160),
       stroke: luma(160),
       inset: 5pt,
-      text(font: gothic, fill: white, "　定理 " + num + "  " + title)
+      text(font: gothic, fill: white, "　定理 " + num + "  " + title, weight: "regular")
     ),
     block(
       width: 100%,
@@ -40,7 +39,7 @@
       fill: luma(100),
       stroke: luma(100),
       inset: 5pt,
-      text(font: gothic, fill: white, "　定義 " + num + "  " + title)
+      text(font: gothic, fill: white, "　定義 " + num + "  " + title, weight: "regular")
     ),
     block(
       width: 100%,
