@@ -25,6 +25,23 @@ typstの日本語テンプレート
    cp typst_template/ref.bib ref.bib
    ```
 
+## サブモジュールの入ったレポジトリをクローンするとき
+
+`repository`というレポジトリで本レポジトリをサブモジュールとして登録している場合，`repository`をcloneするには以下の操作が必要です．
+
+1. 通常通りcloneする
+
+   ```bash
+   gh repo clone user/repository
+   ```
+
+2. サブモジュールの中身を取得する
+
+   ```bash
+   cd repository
+   git submodule update --init --recursive
+   ```
+
 ### テンプレートへの更新を取り入れるとき
 
 1. サブモジュール内をpullする
