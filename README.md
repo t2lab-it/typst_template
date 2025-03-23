@@ -22,7 +22,7 @@ typstの日本語テンプレート
 
    ```bash
    cp typst_template/main.typ main.typ
-   cp typst_template/ref.typ ref.typ
+   cp typst_template/ref.bib ref.bib
    ```
 
 ### テンプレートへの更新を取り入れるとき
