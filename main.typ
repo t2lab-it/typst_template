@@ -1,18 +1,22 @@
-#import "style.typ": *
-#show: set_init
-//==================================================
-//                    DOCUMENT
-//==================================================
+#import "typst_template/lib.typ": *
+#show: jcls_init
+
 #show: maketitle.with(
-  title: [],
+  title: [タイトル],
   authors: (
     (
-      name: "",
+      name: [],
+      affiliation: [],
       email: "",
-      affiliation: "",
     ),
   ),
-  date:"on",
-  tableofcontents:"on",
-  abstract: ""
+  date: true,
+  tableofcontents: true,
+  abstract: []
+)
+
+
+#bibliography-list(
+  title: [参考文献],
+  ..bib-file(read("ref.bib")),
 )

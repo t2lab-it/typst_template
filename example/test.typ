@@ -1,11 +1,4 @@
-#import "style.typ": *
-#import "add_style.typ": *
-//拡張環境
-#import"@preview/equate:0.1.0": equate//複数行の数式を個別に番号付け
-#show: equate
-//==================================================
-//                    DOCUMENT
-//==================================================
+#import "../lib.typ": *
 #show: jcls_init
 #show: maketitle.with(
   title: [タイトル],
@@ -21,9 +14,6 @@
   tableofcontents: true,
   abstract: [ここに概要を記述します．概要を記述しない場合は，`[ ]`の中に何も記述しなければ良いです．このときは，Abstractの文字も自動的に消えます．日付の表示を消したい場合には，`date: false`などと記述すれば，消えます．同様にして，目次もtableofcontentsによって行うことができます．]
 )
-
-
-
 
 = セクション名
 
@@ -228,7 +218,7 @@ $ H(X, Y) >= 0 $
 #v(2em)
 #bibliography-list(
   title: [参考文献],
-  ..bib-file(read("refs.bib")),
+  ..bib-file(read("../ref.bib")),
 )
 
 #show: jcls_appendix
