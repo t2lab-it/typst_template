@@ -94,3 +94,51 @@
     counter(math.equation).update(n => n - 1)
   }
 ]
+
+//インデント関係
+
+#let indent = context {
+  //現在の位置を取得
+  let now = here().position().x
+
+  //marginを取得
+  let page-set = page.margin
+  if page-set == auto{//marginが自動で設定されている場合
+    let small-length = calc.min(page.width, page.height)
+    page-set = small-length * 2.5/21
+  }
+  else{//marginが手動設定されている場合は，左側の余白を取得
+    page-set = page-set.left
+  }
+
+  //first-line-indentの量を取得
+  let par-first-indent = par.first-line-indent.amount
+
+  //位置が一番左のとき　かつ　インデント量が0でないとき
+  if now == page-set and par-first-indent != 0cm{
+    h(par-first-indent)
+  }
+}
+
+#let noindent = context {
+  //現在の位置を取得
+  let now = here().position().x
+
+  //marginを取得
+  let page-set = page.margin
+  if page-set == auto{//marginが自動で設定されている場合
+    let small-length = calc.min(page.width, page.height)
+    page-set = small-length * 2.5/21
+  }
+  else{//marginが手動設定されている場合は，左側の余白を取得
+    page-set = page-set.left
+  }
+
+  //first-line-indentの量を取得
+  let par-first-indent = par.first-line-indent.amount
+
+  //位置が一番左のとき　かつ　インデント量が0でないとき
+  if now == page-set and par-first-indent != 0cm{
+    h(- par-first-indent)
+  }
+}
