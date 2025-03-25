@@ -183,6 +183,23 @@
       align(left)[#it.body]
     )
   }
+
+  // setting list
+  show terms: it => {
+    v(1em)
+    it
+    v(1em)
+  }
+  show enum: it => {
+    v(1em)
+    it
+    v(1em)
+  }
+  show list: it => {
+    v(1em)
+    it
+    v(1em)
+  }
   // Disable code breaks between Japanese characters
   show cjkre: it => it.text.match(cjkre).captures.sum()
 
