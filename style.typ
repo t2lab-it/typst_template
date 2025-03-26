@@ -40,7 +40,10 @@
     number-align: center,
   )
   // setting normal font
-  set text(font: (english, mincho), size: textfontsize, cjk-latin-spacing: auto, weight: 250)
+  set text(font: (
+    english,
+    (name: mincho, covers: "latin-in-cjk"),
+  ), size: textfontsize, cjk-latin-spacing: auto, weight: 250)
   // setting line spacing
   set par(leading: textfontsize)
   // setting equation font
