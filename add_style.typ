@@ -1,60 +1,72 @@
 #import "style.typ": *
 
 // 定理環境
-#let teiri(title, it) = {
+#let teiri(title, it, label: none) = {
   teirinum.step()
 
   let num = context(str(counter(heading).get().at(0))) + "." + teirinum.display()
 
-  grid(
-    columns: 1,
-    gutter: 0pt,
-    block(
-      width: 100%,
-      fill: luma(160),
-      stroke: luma(160),
-      inset: 5pt,
-      text(font: gothic, fill: white, "　定理 " + num + "  " + title, weight: "regular")
-    ),
-    block(
-      width: 100%,
-      inset: 15pt,
-      stroke: luma(160),
-      it
-    )
-  )
+  [#figure(
+    [
+      #set align(left)
+      #stack(
+        dir: ttb,
+        block(
+          width: 100%,
+          fill: luma(160),
+          stroke: luma(160),
+          inset: 5pt,
+          text(font: gothic, fill: white, "　定理 " + num + h(1.5em) + title, weight: "regular")
+        ),
+        block(
+          width: 100%,
+          inset: 15pt,
+          stroke: luma(160),
+          it
+        )
+      )
+    ],
+    kind: "teiri",
+    supplement: [定理]
+  )#label]
 }
 
 //定義環境
-#let teigi(title, it) = {
+#let teigi(title, it, label: none) = {
   teiginum.step()
 
   let num = context(str(counter(heading).get().at(0))) + "." + teiginum.display()
 
-  grid(
-    columns: 1,
-    gutter: 0pt,
-    block(
-      width: 100%,
-      fill: luma(100),
-      stroke: luma(100),
-      inset: 5pt,
-      text(font: gothic, fill: white, "　定義 " + num + "  " + title, weight: "regular")
-    ),
-    block(
-      width: 100%,
-      inset: 15pt,
-      stroke: luma(100),
-      it
-    )
-  )
+  [#figure(
+    [
+      #set align(left)
+      #stack(
+        dir: ttb,
+        block(
+          width: 100%,
+          fill: luma(100),
+          stroke: luma(100),
+          inset: 5pt,
+          text(font: gothic, fill: white, "　定義 " + num + h(1.5em) + title, weight: "regular")
+        ),
+        block(
+          width: 100%,
+          inset: 15pt,
+          stroke: luma(100),
+          it
+        )
+      )
+    ],
+    kind: "teiri",
+    supplement: [定義]
+  )#label]
 }
 
 //証明環境
 #let shoumei(it) = {
   grid(
     columns: 2,
-    text(font: gothic, "証明"),
+    text(font: gothic, "証明", weight: "regular"),
     {v(4pt)
     line(stroke: (dash: ("dot", 3pt), paint: luma(140), thickness: 1.5pt), end: (100%, 0%), start: (2.5%, 0%))}
   )
