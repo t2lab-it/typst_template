@@ -2,9 +2,8 @@
 
 // 定理環境
 #let teiri(title, it, label: none) = {
-  teirinum.step()
 
-  let num = context(str(counter(heading).get().at(0))) + "." + teirinum.display()
+  let num = context(counter(figure.where(kind: "teiri")).display())
 
   [#figure(
     [
@@ -33,9 +32,8 @@
 
 //定義環境
 #let teigi(title, it, label: none) = {
-  teiginum.step()
 
-  let num = context(str(counter(heading).get().at(0))) + "." + teiginum.display()
+  let num = context(counter(figure.where(kind: "teigi")).display())
 
   [#figure(
     [
@@ -57,7 +55,7 @@
         )
       )
     ],
-    kind: "teiri",
+    kind: "teigi",
     supplement: [定義]
   )#label]
 }

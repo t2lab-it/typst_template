@@ -26,11 +26,6 @@
 // japanese code setting
 #let cjkre = regex("([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF][　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・]*)[ ]+([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF])[ ]*")
 
-
-//add_style.typのためのカウンター
-#let teirinum = counter("teirinum")
-#let teiginum = counter("teiginum")
-
 // ================================================== //
 //          Japanese class initial setting            //
 // ================================================== //
@@ -79,8 +74,8 @@
     counter(figure.where(kind: image)).update(0)
     counter(figure.where(kind: table)).update(0)
     counter(figure.where(kind: raw)).update(0)
-    teiginum.update(0)
-    teirinum.update(0)
+    counter(figure.where(kind: "teigi")).update(0)
+    counter(figure.where(kind: "teiri")).update(0)
 
     it
   }
